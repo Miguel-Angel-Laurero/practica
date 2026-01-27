@@ -41,6 +41,10 @@
             </div>
             <h3> Are pets allowed?</h3>
             <div>
+                <BaseRadioGroup
+                    v-model="events.pets"
+                    :options=petsOptions
+                ></BaseRadioGroup>
                 <BaseRadio
                     v-model="events.pets"
                     :value="1"
@@ -64,6 +68,7 @@ import BaseCheckbox from './BaseCheckbox.vue';
 import BaseInput from './BaseInput.vue';
 import BaseSelect from './BaseSelect.vue';
 import BaseRadio from './BaseRadio.vue';
+import BaseRadioGroup from './BaseRadioGroup.vue';
 
     const categories =[
         'sustainability',
@@ -86,6 +91,10 @@ import BaseRadio from './BaseRadio.vue';
           music: false
         }
     }
+    const petsOptions=[
+        { label: 'Yes', value: 1 },
+        { label: 'No', value: 0 }
+    ]
 </script>
 <style scoped>
     .contact{
