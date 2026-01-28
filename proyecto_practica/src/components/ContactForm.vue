@@ -87,7 +87,15 @@ import BaseRadioGroup from './BaseRadioGroup.vue';
     ]
 
     const sendForm = () =>{
-
+        axios.post(
+            'https://my-json-server.typicode.com/miguel-angel-laurero/practica/db',this.events
+        )
+        .then(function (response){
+            console.log('Response', response)
+        })
+        .catch(function(err){
+            console.log('Error',err)
+        })
     }
 </script>
 <style scoped>
