@@ -54,49 +54,49 @@
     </div>
 </template>
 <script setup>
+import { reactive } from 'vue'; // 1. Importar reactive
 import axios from 'axios';
 import BaseCheckbox from './BaseCheckbox.vue';
 import BaseInput from './BaseInput.vue';
 import BaseSelect from './BaseSelect.vue';
 import BaseRadioGroup from './BaseRadioGroup.vue';
 
-    const categories =[
-        'sustainability',
-        'nature',
-        'animal welfare',
-        'housing',
-        'education',
-        'food',
-        'community'
-    ];
+const categories = [
+    'sustainability', 'nature', 'animal welfare',
+    'housing', 'education', 'food', 'community'
+];
 
-    const events={
-        category: '',
-        title: '',
-        description: '',
-        location: '',
-        pets: 1,
-        extras: {
-          catering: false,
-          music: false
-        }
+// 2. Hacer que el objeto sea reactivo
+const events = reactive({
+    category: '',
+    title: '',
+    description: '',
+    location: '',
+    pets: 1,
+    extras: {
+        catering: false,
+        music: false
     }
-    const petsOptions=[
-        { label: 'Yes', value: 1 },
-        { label: 'No', value: 0 }
-    ]
+});
 
-    const sendForm = () =>{
-        axios.post(
-            'https://my-json-server.typicode.com/miguel-angel-laurero/practica/db',this.events
-        )
-        .then(function (response){
-            console.log('Response', response)
-        })
-        .catch(function(err){
-            console.log('Error',err)
-        })
-    }
+const petsOptions = [
+    { label: 'Yes', value: 1 },
+    { label: 'No', value: 0 }
+];
+
+const sendForm = () => {
+    axios.post(
+        'https://my-json-server.typicode.com/miguel-angel-laurero/practica/db', 
+        events 
+    )
+    .then((response) => {
+        console.log('Response', response);
+        alert('¡Formulario enviado con éxito!');
+    })
+    .catch((err) => {
+        console.log('Error', err);
+    });
+}
 </script>
 <style scoped>
     .contact {
