@@ -2,7 +2,7 @@
     <nav class ="navbar">
         <img src="/src/assets/logo.svg" alt="Logo" class="logo" />
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>  
+        <RouterLink to="/tablero">Tablero</RouterLink>  
         <RouterLink to="/contact">Contact</RouterLink>  
     </nav>
 </template>

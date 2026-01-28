@@ -11,43 +11,53 @@
                 >
                 </BaseSelect>
             </div>
-            <h3> Titulo del evento</h3>
-
-            <div>
-                <BaseInput
-                    v-model="events.title"
-                    label ="Title"
-                    type="text"
-                ></BaseInput>
-            </div>
-            <div>
-                <BaseInput
-                    v-model="events.description"
-                    label ="Description"
-                    type="text"
-                ></BaseInput>
-            </div>
-            <div>
-                <BaseCheckbox
-                    v-model="events.extras.catering"
-                    label="Catering"   
-                ></BaseCheckbox>
-            </div>
-            <div>
-                <BaseCheckbox
-                    v-model="events.extras.music"
-                    label="Music"   
-                ></BaseCheckbox>
-            </div>
-            <h3> Are pets allowed?</h3>
-            <div>
-                <BaseRadioGroup
-                    v-model="events.pets"
-                    name="pets"
-                    :options="petsOptions"
-                    vertical
-                ></BaseRadioGroup>
-            </div>
+            
+            <fieldset>
+                <legend>Name and describe your event</legend>
+                <div>
+                    <BaseInput
+                        v-model="events.title"
+                        label ="Title"
+                        type="text"
+                        error="This input has an error!"
+                    ></BaseInput>
+                </div>
+                <div>
+                    <BaseInput
+                        v-model="events.description"
+                        label ="Description"
+                        type="text"
+                        error="This input has an error!"
+                    ></BaseInput>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Extras</legend>
+                <div>
+                    <BaseCheckbox
+                        v-model="events.extras.catering"
+                        label="Catering"   
+                    ></BaseCheckbox>
+                </div>
+                <div>
+                    <BaseCheckbox
+                        v-model="events.extras.music"
+                        label="Music"   
+                    ></BaseCheckbox>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Pets</legend>
+                <p>Are pets allowed?</p>
+                <div>
+                    <BaseRadioGroup
+                        v-model="events.pets"
+                        name="pets"
+                        :options="petsOptions"
+                        vertical
+                    ></BaseRadioGroup>
+                </div>
+            </fieldset>
 
             <button type="submit">Enviar</button>
         </form>
@@ -86,7 +96,7 @@ const petsOptions = [
 
 const sendForm = () => {
     axios.post(
-        'https://my-json-server.typicode.com/miguel-angel-laurero/practica/db', 
+        'https://my-json-server.typicode.com/Code-Pop/Vue-3-Forms/events', 
         events 
     )
     .then((response) => {
@@ -118,5 +128,15 @@ const sendForm = () => {
     .form div {
         display: flex;
         flex-direction: column;
+    }
+    fieldset{
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    legend{
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 20px;
     }
 </style>
