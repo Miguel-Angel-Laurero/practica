@@ -1,6 +1,6 @@
 <template>
     <nav class ="navbar">
-        <img src="" alt="Logo" class="logo" />
+        <img src="/src/assets/logo.svg" alt="Logo" class="logo" />
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>  
         <RouterLink to="/contact">Contact</RouterLink>  

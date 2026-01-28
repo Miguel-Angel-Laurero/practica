@@ -1,7 +1,7 @@
 <template>
     <div class="contact" >
         <h1>Contacto</h1>
-        <form action="" class="form">
+        <form action="" @submit.prevent="sendForm" class="form">
             
             <div>
                 <BaseSelect
@@ -43,20 +43,10 @@
             <div>
                 <BaseRadioGroup
                     v-model="events.pets"
-                    :options=petsOptions
+                    name="pets"
+                    :options="petsOptions"
+                    vertical
                 ></BaseRadioGroup>
-                <BaseRadio
-                    v-model="events.pets"
-                    :value="1"
-                    label="Yes"  
-                    name="pets" 
-                ></BaseRadio>
-                <BaseRadio
-                    v-model="events.pets"
-                    :value="0"
-                    label="No"  
-                    name="pets" 
-                ></BaseRadio>
             </div>
 
             <button type="submit">Enviar</button>
@@ -64,10 +54,10 @@
     </div>
 </template>
 <script setup>
+import axios from 'axios';
 import BaseCheckbox from './BaseCheckbox.vue';
 import BaseInput from './BaseInput.vue';
 import BaseSelect from './BaseSelect.vue';
-import BaseRadio from './BaseRadio.vue';
 import BaseRadioGroup from './BaseRadioGroup.vue';
 
     const categories =[
@@ -95,20 +85,29 @@ import BaseRadioGroup from './BaseRadioGroup.vue';
         { label: 'Yes', value: 1 },
         { label: 'No', value: 0 }
     ]
+
+    const sendForm = () =>{
+
+    }
 </script>
 <style scoped>
-    .contact{
+    .contact {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Centrado horizontal */
+        justify-content: center; /* Centrado vertical */
+        min-height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+        width: 100%;
     }
-    .form{
+    
+    .form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        width: 300px;
+        width: 300px; /* Mantiene el ancho fijo que ya tenías */
     }
-    .form div{
+
+    .form div {
         display: flex;
         flex-direction: column;
     }
