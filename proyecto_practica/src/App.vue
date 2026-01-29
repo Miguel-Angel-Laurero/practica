@@ -1,15 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import Menu from './components/Menu.vue';
 </script>
 
 <template>
-  <header>
-    <Menu></Menu>
-  </header>
+  <div class="app-container">
+    <header class="app-header">
+      <Menu />
+    </header>
 
-  <RouterView />
+    <main class="app-content">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped>
+<style>
+
 </style>

@@ -2,12 +2,17 @@
 <template>
   <main>
     <div class="home">
-        <p>Bienvenido</p>
+        <LoginForm></LoginForm>
+
     </div>
   </main>
 </template>
 
   <script setup>
+
+
+import LoginForm from './LoginForm.vue';
+
   </script>
   <style scoped>
     .home{

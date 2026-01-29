@@ -2,24 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './base.css';
-#app {
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+/* Nota: Sin 'scoped' para que afecte al root, o mejor muévelo a main.css */
+html, body, #app {
+  height: 100%; /* Mejor que 100vh para evitar saltos en móvil */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evita cualquier scroll accidental en el root */
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ocupa exactamente el alto de la pantalla */
+  width: 100vw;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.app-header {
+  flex-shrink: 0; /* El menú no se encoge, mantiene su altura natural */
+}
+
+.app-content {
+  flex-grow: 1; /* El contenido toma todo el espacio sobrante */
+  overflow-y: auto; /* Solo el contenido tendrá scroll si es necesario */
+  background-color: #f4f4f4; /* Opcional: para visualizar el área */
 }
